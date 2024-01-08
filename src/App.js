@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import TodoApp from "./Component/TodoApp/TodoApp";
+import About from "./Component/About/About";
+import Header from "./Component/Header/Header";
+import { BrowserRouter as Router, Route ,Routes } from "react-router-dom"; //we use BrowserRouter as Router statement so that we can use Router name thats why
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Header /> {/* this header is common in all pages*/}
+      <Routes >
+      
+      <Route path="/" exact Component={TodoApp} />
+      <Route path="/about" Component={About} />
+      </ Routes >
+    </Router>
   );
-}
-
+};
 export default App;
